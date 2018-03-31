@@ -46,10 +46,16 @@ class App extends Component {
     })
   }
 
+  updateCurrentCity = (currentCity) => {
+    this.setState({ currentCity });
+    console.log('app.js -> updateCurrentCity');
+  }
+
   // call method to read currentCity from header
 
   setCurrentCity = (city) => {
     city = city !== undefined ? `${city[0]},  ${city[1]}` : city;
+    console.log('app.js -> setCurrentCity');
     this.setState({ city });
   }
 
@@ -72,7 +78,7 @@ class App extends Component {
       //
       return (
         <div className="fullContainer">
-          <HeaderContainer handleLocationChange={this.handleLocationChange} setCurrentCity = {this.setCurrentCity}/>
+          <HeaderContainer handleLocationChange={this.handleLocationChange} updateCurrentCity = {this.updateCurrentCity} setCurrentCity = {this.setCurrentCity}/>
           <main className="mapContainer">
             <div className="searchContainer">
               <Search submit={this.handleSubmit} input={this.handleChange}/>

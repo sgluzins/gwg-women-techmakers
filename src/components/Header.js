@@ -71,12 +71,15 @@ class HeaderContainer extends Component {
 
   componentWillUpdate(prevProps, prevState) {
     if (prevState.currentCity !== this.state.currentCity) {
-      this.props.setCurrentCity(this.state.currentCity);
+      this.props.updateCurrentCity(this.state.currentCity);
+      console.log('header.js -> componentWillUpdate')
     }
+    console.log('inside componentWillUpdate but outside if statement')
   }
   
   componentDidMount() {
     this.getMyLocation();
+    console.log('header.js -> componentDidMount')
   }
 
 
